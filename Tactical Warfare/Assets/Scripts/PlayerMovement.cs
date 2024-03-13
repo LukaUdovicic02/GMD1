@@ -16,8 +16,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        movement.y = Input.GetAxis("Vertical");
-        movement.x = Input.GetAxis("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal");
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         offset = (mousePos - (Vector2)transform.position).normalized * offsetDistance;
@@ -25,8 +25,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * playerSpeed * Time.fixedDeltaTime);
-
+        rb.velocity = (movement * playerSpeed * Time.fixedDeltaTime);
+        rb.angularVelocity = 0;
         Vector2 lookDirection = (mousePos - rb.position).normalized;
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
