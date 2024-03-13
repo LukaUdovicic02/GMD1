@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
+    public AudioSource Source;
     public void PlayGame()
     {
         SceneManager.LoadSceneAsync(1);
@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Source.Play();
     }
 
     // Update is called once per frame
