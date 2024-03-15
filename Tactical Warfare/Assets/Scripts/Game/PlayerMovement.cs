@@ -10,17 +10,20 @@ public class PlayerMovement : MonoBehaviour
     public Camera cam;
     private Vector2 mousePos;
     private Vector2 movement;
+    public Shooting shootingScript;
+    public string InputNameHorizontal;
+    public string InputNameVertical;
 
     public float offsetDistance = 1f;
     private Vector2 offset;
 
     void Update()
     {
-        movement.y = Input.GetAxisRaw("Vertical");
-        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw(InputNameVertical);
+        movement.x = Input.GetAxisRaw(InputNameHorizontal);
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        offset = (mousePos - (Vector2)transform.position).normalized * offsetDistance;
+        offset = (mousePos - (Vector2) transform.position).normalized * offsetDistance;
     }
 
     private void FixedUpdate()
