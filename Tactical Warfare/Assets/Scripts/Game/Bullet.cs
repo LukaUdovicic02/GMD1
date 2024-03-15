@@ -21,18 +21,13 @@ public class Bullet : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player 1"))
         {
-            // Destroy(other.gameObject);
             other.gameObject.GetComponent<IDamagable>().TakeDamage(10);
-            Debug.Log("ficko");
             Destroy(gameObject);
         }
 
         if (other.gameObject.CompareTag("Player 2"))
         {
-            //Destroy(other.gameObject);
             other.gameObject.GetComponent<IDamagable>().TakeDamage(10);
-            Debug.Log("ficko2");
-
             Destroy(gameObject);
         }
     }

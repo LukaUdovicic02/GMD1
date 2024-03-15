@@ -10,6 +10,7 @@ public class Health : MonoBehaviour, IDamagable
 
     public int maxHealth = 100;
     public HealthBar HealthBar;
+   // public GameObject gameOver;
 
     void Start()
     {
@@ -21,10 +22,5 @@ public class Health : MonoBehaviour, IDamagable
     {
         currentHealth -= damage;
         HealthBar.SetHealth(currentHealth);
-
-        if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
 }
