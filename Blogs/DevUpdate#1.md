@@ -8,6 +8,7 @@
 4.Integrated dynamic soundtrack for Menu UI and Game it self.  
 5.Introduced health system and game over screen for decisive outcomes.  
 6.Added main menu along with background image.  
+7.When player is pressing the shoot button if other player is getting hit it deals damage to the other player
 
 
 
