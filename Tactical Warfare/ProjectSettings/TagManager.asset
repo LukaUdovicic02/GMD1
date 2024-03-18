@@ -11,6 +11,8 @@ TagManager:
   - bullet
   - p1
   - p2
+  - shooting
+  - ammo
   layers:
   - Default
   - TransparentFX
