@@ -20,12 +20,12 @@ public class Result : MonoBehaviour
     {
         if (player1Health.currentHealth <= 0)
         {
-            SetWinnerText("Player 1 wins!"); 
+            SetWinnerText("Player 2 wins!"); 
             gameOverScreen.SetActive(true);
         }
         else if (player2Health.currentHealth <= 0)
         {
-            SetWinnerText("Player 2 wins!"); 
+            SetWinnerText("Player 1 wins!"); 
             gameOverScreen.SetActive(true);
         }
     }

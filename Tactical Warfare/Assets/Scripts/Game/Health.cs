@@ -24,7 +24,7 @@ public class Health : MonoBehaviour, IDamagable
         HealthBar.SetHealth(currentHealth);
 
 
-        if (currentHealth >= 0)
+        if (currentHealth <= 0)
         {
             Destroy(gameObject);
         }

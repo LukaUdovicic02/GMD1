@@ -11,21 +11,13 @@ public class Ammo : MonoBehaviour, IShoot
     public TextMeshProUGUI currentAmmo;
     public TextMeshProUGUI maxAmmo;
 
-    private bool isReloading = false;
-    private float reloadTimer = 0f;
+    public bool isReloading;
+    private float reloadTimer;
 
-    private void Start()
-    {
-        if (currentBulletCount != 0)
-        {
-            Shooting.OnShoot += Shoot;
-        }
-    }
+    public GameObject muzzleFlashAnimation;
+    private bool isShooting;
+    private float shootingTimer = 0.2f;
 
-    private void OnDestroy()
-    {
-        Shooting.OnShoot -= Shoot;
-    }
 
     void Update()
     {
@@ -40,12 +32,25 @@ public class Ammo : MonoBehaviour, IShoot
                 isReloading = false;
             }
         }
+
+        if (isShooting)
+        {
+            muzzleFlashAnimation.SetActive(true);
+            shootingTimer -= Time.deltaTime;
+            if (shootingTimer <= 0.1)
+            {
+                muzzleFlashAnimation.SetActive(false);
+                isShooting = false;
+                shootingTimer = 0.2f;
+            }
+        }
     }
 
     public void Shoot()
-    {
+    {   
         if (currentBulletCount > 0 && !isReloading)
         {
+            isShooting = true;
             currentBulletCount--;
             if (currentBulletCount == 0)
             {

@@ -13,6 +13,7 @@ TagManager:
   - p2
   - shooting
   - ammo
+  - reload
   layers:
   - Default
   - TransparentFX

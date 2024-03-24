@@ -10,15 +10,7 @@ public class Shooting : MonoBehaviour
     public Transform shootingPoint;
     public KeyCode et;
     public Ammo ammo;
-
-    public string PlayerTag;
-
-    public delegate void ShootingAction();
-
-    public static event ShootingAction OnShoot;
-
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         ammo = GameObject.FindWithTag("ammo").GetComponent<Ammo>();
@@ -32,9 +24,10 @@ public class Shooting : MonoBehaviour
             if (Input.GetKeyDown(et))
             {
                 Instantiate(bulletPrefab, shootingPoint.position, shootingPoint.rotation);
-
                 ammo.Shoot();
             }
+ 
+            
         }
     }
 }
