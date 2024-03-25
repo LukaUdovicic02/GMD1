@@ -14,6 +14,7 @@ TagManager:
   - shooting
   - ammo
   - reload
+  - glass
   layers:
   - Default
   - TransparentFX
