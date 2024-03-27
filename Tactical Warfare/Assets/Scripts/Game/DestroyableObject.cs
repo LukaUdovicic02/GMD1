@@ -1,12 +1,13 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DestroyableObject : MonoBehaviour
 {
     public AudioManager audioManager;
     [SerializeField] private string destroyableObjectName;
+
+    public GameObject explosionAnimation;
+    private float explosionDuration = 0.25f;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -15,23 +16,30 @@ public class DestroyableObject : MonoBehaviour
             if (destroyableObjectName.Equals("glass"))
             {
                 audioManager.PlaySFX(audioManager.glassShattering);
+                Destroy(gameObject);
+                Destroy(other.gameObject);
             }
 
             if (destroyableObjectName.Equals("wood"))
             {
                 audioManager.PlaySFX(audioManager.doorBreaking);
+                Destroy(gameObject);
+                Destroy(other.gameObject);
             }
 
-            Destroy(gameObject);
+            if (destroyableObjectName.Equals("barrel"))
+            {
+                StartCoroutine(PlayExplosionAndDestroy());
+                Destroy(other.gameObject);
+            }
         }
     }
 
-    void Start()
+    private IEnumerator PlayExplosionAndDestroy()
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        explosionAnimation.SetActive(true);
+        yield return new WaitForSeconds(explosionDuration);
+        explosionAnimation.SetActive(false);
+        Destroy(gameObject);
     }
 }

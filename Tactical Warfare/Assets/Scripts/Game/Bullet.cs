@@ -6,7 +6,6 @@ public class Bullet : MonoBehaviour
 {
     public Rigidbody2D rb;
     [SerializeField] private float speed = 300f;
-    
 
     void Start()
     {
@@ -15,7 +14,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Top") || other.gameObject.CompareTag("glass"))
+        if (other.gameObject.CompareTag("Top"))
         {
             Destroy(gameObject);
         }

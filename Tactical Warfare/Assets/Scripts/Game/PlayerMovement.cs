@@ -4,10 +4,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float playerSpeed = 250f;
-    [SerializeField] private float dashForce = 10f;
-    [SerializeField] private float dashDuration = 2f;
-    private bool isDashing = false;
-    private Vector2 dashDirection;
+    public Ability ability;
 
     public Rigidbody2D rb;
     public Camera cam;
@@ -20,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (isDashing) return;
+        if (ability.isDashing) return;
 
         movement.y = Input.GetAxisRaw(InputNameVertical);
         movement.x = Input.GetAxisRaw(InputNameHorizontal);
@@ -28,28 +25,25 @@ public class PlayerMovement : MonoBehaviour
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         offset = (mousePos - (Vector2) transform.position).normalized * offsetDistance;
 
-        if (Input.GetKeyDown(KeyCode.E) && !isDashing)
+        if (Input.GetKeyDown(KeyCode.E) && !ability.isDashing)
         {
-            StartCoroutine(Dash());
+            ability.Dash();
+        }
+
+        if (Input.GetKeyDown(KeyCode.T) && !ability.isInvisible)
+        {
+            ability.Invisible();
         }
     }
 
     private void FixedUpdate()
     {
-        if (isDashing) return;
+        if (ability.isDashing) return;
 
         rb.velocity = (movement * playerSpeed * Time.fixedDeltaTime);
         rb.angularVelocity = 0;
         Vector2 lookDirection = (mousePos - rb.position).normalized;
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
-    }
-
-    IEnumerator Dash()
-    {
-        isDashing = true;
-        rb.velocity = movement * dashForce;
-        yield return new WaitForSeconds(dashDuration);
-        isDashing = false;
     }
 }
