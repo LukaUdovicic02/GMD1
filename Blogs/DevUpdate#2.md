@@ -7,3 +7,8 @@
 3.Ammunition Capacity Feature: Guns now have a defined bullet capacity; upon reaching zero, they automatically reload with a reloading animation. The player's current ammo count is visibly displayed on-screen.  
 4.New Abilities: Players now possess two abilities: invincibility and dash.  
 5.Explosive Barrels: Shoot these barrels to trigger explosions that damage nearby players with corresponding animation.  
+
+Game UI: 
+![image](https://github.com/LukaUdovicic02/Unity-Game-Tactical-Warfare/assets/75533575/228852f1-cbc4-4782-9c25-e8a066c68262)
+
+
