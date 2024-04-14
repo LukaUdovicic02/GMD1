@@ -28,4 +28,11 @@ public class Health : MonoBehaviour, IDamagable
             Destroy(gameObject);
         }
     }
+
+    public void IncreaseHealth(int amount)
+    {
+        currentHealth += amount;
+        HealthBar.SetHealth(currentHealth);
+        if (maxHealth < currentHealth) currentHealth = maxHealth;
+    }
 }
