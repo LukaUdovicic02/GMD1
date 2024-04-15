@@ -2,7 +2,7 @@
 
 ### Summary:
 
-Tactical Warfare is a top-down 2D shooter game that offers fast-paced, intense battles in various game modes including 1v1, Free-for-All (FFA) with AI, and Team vs. Team. Players choose from four distinct classes - Assault, Sniper, Pistol, and Heavy - each with unique abilities and playstyles. The game emphasizes strategic decision-making, teamwork, and skillful combat maneuvers.
+Tactical Warfare is a top-down 2D shooter game that offers fast-paced, intense battles in various game modes including 1v1, 1v1 against AI. Players choose from four distinct classes - Assault, Sniper, Pistol, and Heavy - each with unique abilities and playstyles. The game emphasizes strategic decision-making and skillful combat maneuvers.
 
 
 ### Gameplay:
