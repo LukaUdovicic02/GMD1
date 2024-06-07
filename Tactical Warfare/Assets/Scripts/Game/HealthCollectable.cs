@@ -9,7 +9,6 @@ namespace Game
         
         public void OnCollected(GameObject player)
         {
-            Debug.Log("Test2");
             player.GetComponent<Health>().IncreaseHealth(healthAmount);
         }
     }

@@ -15,6 +15,9 @@ TagManager:
   - ammo
   - reload
   - glass
+  - CrosshairP1
+  - CrosshairP2
+  - MainCamera2
   layers:
   - Default
   - TransparentFX
